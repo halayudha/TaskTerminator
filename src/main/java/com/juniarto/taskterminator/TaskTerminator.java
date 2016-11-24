@@ -28,7 +28,7 @@ public class TaskTerminator {
       
       //Socket to  talk to clients
       ZMQ.Socket responder = context.socket(ZMQ.REP);
-      responder.bind("tcp://*:5555");
+      responder.bind("tcp://*:5557");
       
       int i = 0;
       //attempt_1459929106411_0009_m_000000_0
