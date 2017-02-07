@@ -41,7 +41,9 @@ public class TaskTerminator {
               System.out.println(taskAttemptID);
               //StringTokenizer tokenizer = new StringTokenizer(taskAttemptID,"_");
               String[] tokens = taskAttemptID.split("_");
-              if (tokens[0].equals("attempt") && i == 0){
+              String attemptId = tokens[tokens.length - 1];
+              //if (tokens[0].equals("attempt") && i == 0){
+              if (tokens[0].equals("attempt") && attemptId.equals("0")){
                 //Process p = Runtime.getRuntime().exec("/home/hduser/hadoop-2.7.1-src/hadoop-dist/target/hadoop-2.7.1/bin/mapred job -list " );
                 //Process p = Runtime.getRuntime().exec("/home/hduser/hadoop-2.7.1-src/hadoop-dist/target/hadoop-2.7.1/bin/mapred job -fail-task " + taskAttemptID);
                 ProcessBuilder pb = new ProcessBuilder("mapred","job","-fail-task",taskAttemptID);
@@ -50,7 +52,7 @@ public class TaskTerminator {
                 pb.redirectOutput(outputFile);
                 pb.redirectError(errorFile);
                 pb.start();
-                i = 1;
+                //i = 1;
               }
               String reply = "World";
               responder.send(reply.getBytes(), 0);
