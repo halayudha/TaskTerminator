@@ -43,7 +43,8 @@ public class TaskTerminator {
               String[] tokens = taskAttemptID.split("_");
               String attemptId = tokens[tokens.length - 1];
               //if (tokens[0].equals("attempt") && i == 0){
-              if (tokens[0].equals("attempt") && attemptId.equals("0")){
+              //if (tokens[0].equals("attempt") && attemptId.equals("0") ){
+              if (tokens[0].equals("attempt")){
                 //Process p = Runtime.getRuntime().exec("/home/hduser/hadoop-2.7.1-src/hadoop-dist/target/hadoop-2.7.1/bin/mapred job -list " );
                 //Process p = Runtime.getRuntime().exec("/home/hduser/hadoop-2.7.1-src/hadoop-dist/target/hadoop-2.7.1/bin/mapred job -fail-task " + taskAttemptID);
                 ProcessBuilder pb = new ProcessBuilder("mapred","job","-fail-task",taskAttemptID);
